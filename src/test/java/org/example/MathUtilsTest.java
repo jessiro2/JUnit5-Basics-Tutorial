@@ -21,6 +21,7 @@ class MathUtilsTest {
 
 
     @Nested
+    @Tag("Math")
     class AddTest {
         @Test
         void testAddingTwoPositives() {
@@ -62,6 +63,7 @@ class MathUtilsTest {
     }
 
     @Test
+    @Tag("Circle")
     void testComputeCircleRadius() {
         assertEquals(314.1592653589793, mathUtils.computeCircleArea(10), "Should return right circle area");
     }
