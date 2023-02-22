@@ -19,18 +19,42 @@ class MathUtilsTest {
         mathUtils = new MathUtils();
     }
 
-    @AfterEach
-    void cleanup() {
-        System.out.println("Cleaning up...");
+
+    @Nested
+    class AddTest {
+        @Test
+        void testAddingTwoPositives() {
+            assertEquals(2, mathUtils.add(1, 1),
+                    "Add method should return the sum of two numbers");
+        }
+
+        @Test
+        void testAddingTwoNegatives() {
+            assertEquals(-2, mathUtils.add(-1, -1),
+                    "Add method should return the sum of two numbers");
+        }
+
+        @Test
+        void testAddingAPositiveAndANegative() {
+            assertEquals(0, mathUtils.add(-1, 1),
+                    "Add method should return the sum of two numbers");
+        }
+
+        @Test
+        @DisplayName("multiply method")
+        void testMultiply() {
+        assertAll(
+                () -> assertEquals(4,mathUtils.multiply(2,2)),
+                () -> assertEquals(0,mathUtils.multiply(2,0)),
+                () -> assertEquals(-2,mathUtils.multiply(2,-1))
+            );
+        }
     }
 
-    @Test
-    @DisplayName("Testing add method")
-    void testAdd() {
-        int expected = 2;
-        int actual = mathUtils.add(1,1);
-        assertEquals(expected, actual,  "The add method should add two numbers");
-    }
+//    @AfterEach
+//    void cleanup() {
+//        System.out.println("Cleaning up...");
+//    }
 
     @Test
     void testDivide() {
